@@ -1,7 +1,11 @@
 <h1>BLOCTIME</h1>
   <div ng-controller="HomeCtrl">
-    <div class="circle">
+    <div ng-hide="onBreak" class="circle">
       <h2>{{ totalTime | timeFilter }}</h2>
     </div>
     <button ng-click="sessionTime(session)">{{ session }}</button>
+    <!-- <div ng-show="onBreak" class="circle">
+      <h2>{{ totalTime | timeFilter }}</h2>
+    </div>
+    <button ng-click="sessionTime(session)">{{ session }}</button> -->
   </div>
