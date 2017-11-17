@@ -16,5 +16,9 @@
 
   angular
     .module('bloctime', ['ui.router', 'firebase'])
+    .constant('SESSIONS', {
+      'WORK_SESSION': 1500, 
+      'BREAK_SESSION': 300
+    })
     .config(config);
 })();

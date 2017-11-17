@@ -21,7 +21,6 @@
         }, 1000, 1500);
       };
 
-      var theTimer;
       $scope.resetSession = function() {
         $scope.totalTime = 1500;
         $interval.cancel(stop);
