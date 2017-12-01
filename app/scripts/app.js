@@ -16,9 +16,5 @@
 
   angular
     .module('bloctime', ['ui.router', 'firebase'])
-    .constant('CLOCK', {
-      WORK: 20,
-      BREAK: 300
-    })
     .config(config);
 })();

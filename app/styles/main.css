@@ -33,18 +33,14 @@ h1 {
 h2 {
   font-size: 100px;
   color: #FFF;
+  line-height: 275px;
 }
 
-button {
+.btn-primary {
   width: 150px;
   margin: 0 auto;
   display: block;
   background: #E0594C;
-  background-image: -webkit-linear-gradient(top, #E0594C, #CF483C);
-  background-image: -moz-linear-gradient(top, #E0594C, #CF483C);
-  background-image: -ms-linear-gradient(top, #E0594C, #CF483C);
-  background-image: -o-linear-gradient(top, #E0594C, #CF483C);
-  background-image: linear-gradient(to bottom, #E0594C, #CF483C);
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
@@ -56,17 +52,13 @@ button {
   margin-top: 50px;
 }
 
-button:focus {
-  outline:0;
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
 }
 
-button:hover {
+.btn-primary:hover {
   background: #CF483C;
-  background-image: -webkit-linear-gradient(top, #CF483C, #E0594C);
-  background-image: -moz-linear-gradient(top, #CF483C, #E0594C);
-  background-image: -ms-linear-gradient(top, #CF483C, #E0594C);
-  background-image: -o-linear-gradient(top, #CF483C, #E0594C);
-  background-image: linear-gradient(to bottom, #CF483C, #E0594C);
   text-decoration: none;
   border: none;
 }
