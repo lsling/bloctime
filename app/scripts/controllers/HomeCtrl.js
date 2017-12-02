@@ -2,19 +2,15 @@
     function HomeCtrl($interval, $scope, CLOCK) {
       $scope.session = 'Start';
       $scope.totalTime = CLOCK.WORK;
+      $scope.resetTotalTime = CLOCK.WORK;
       $scope.onBreak = false;
+      $scope.sessionCount = 0;
 
       $scope.sessionTime = function(session){
-        if (session == "Start" && $scope.onBreak == false) {
-          $scope.totalTime = CLOCK.WORK;
+        if (session == "Start") {
           $scope.startSession();
-        } else if (session == "Reset" && $scope.onBreak == false) {
-          $scope.resetSession(CLOCK.WORK);
-        } else if (session == "Start" && $scope.onBreak == true) {
-          $scope.totalTime = CLOCK.BREAK;
-          $scope.startSession();
-        } else if (session == "Reset" && $scope.onBreak == true) {
-          $scope.resetSession(CLOCK.BREAK);
+        } else if (session == "Reset") {
+          $scope.resetSession();
         }
       };
 
@@ -27,22 +23,35 @@
             $scope.onBreak = !$scope.onBreak;
             $scope.session = "Start";
               if ($scope.onBreak == true) {
-                $scope.totalTime = CLOCK.BREAK;
+                $scope.sessionCount += 1;
+                if ($scope.sessionCount % 4 > 0) {
+                  $scope.totalTime = CLOCK.SHORT_BREAK;
+                  $scope.resetTotalTime = CLOCK.SHORT_BREAK;
+                } else {
+                  $scope.totalTime = CLOCK.LONG_BREAK;
+                  $scope.resetTotalTime = CLOCK.LONG_BREAK;
+                }
               } else {
                 $scope.totalTime = CLOCK.WORK;
+                $scope.resetSession = CLOCK.WORK;
               };
               $interval.cancel(stop);
             }
         }, 1000);
 
         $scope.resetSession = function() {
-          $scope.totalTime = 1500;
+          $scope.totalTime = CLOCK.WORK;
+          $interval.cancel(stop);
+          $scope.session = 'Start';
+        };
+
+        $scope.skipBreak = function() {
+          $scope.onBreak = false;
+          $scope.totalTime = CLOCK.WORK;
           $interval.cancel(stop);
           $scope.session = 'Start';
         };
       };
-
-
     }
 
     angular

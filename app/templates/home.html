@@ -7,5 +7,6 @@
     <div ng-show="onBreak" class="circle">
       <h2>{{ totalTime | timeFilter }}</h2>
       <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }} Break</button>
+      <button type="button" class="btn btn-primary" ng-click="skipBreak()">Skip Break</button>
     </div>
   </div>
