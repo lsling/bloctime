@@ -14,6 +14,10 @@
         }
       };
 
+      var chime = new buzz.sound("../assets/music/Electronic_Chime-KevanGC-495939803.mp3", {
+        preload: true
+      });
+
       $scope.startSession = function() {
         $scope.session = "Reset";
         stop = $interval(function() {
@@ -38,6 +42,12 @@
               $interval.cancel(stop);
             }
         }, 1000);
+
+        $scope.$watch('totalTime', function() {
+          if ($scope.totalTime === 0) {
+            chime.play();
+          };
+        });
 
         $scope.resetSession = function() {
           $scope.totalTime = CLOCK.WORK;
