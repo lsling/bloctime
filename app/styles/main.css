@@ -14,28 +14,98 @@ h1, h2, button {
   font-weight: 200;
 }
 
-h1, h2 {
-  text-align: center;
-}
-
 h1 {
+  font-family: 'Spectral SC', serif;
   background-color: #CF483C;
-  font-size: 22px;
+  font-size: 50px;
   color: #FFF;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
+  height: 50px;
   letter-spacing: 2px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 h2 {
   font-size: 100px;
   color: #FFF;
   line-height: 275px;
+  text-align: center;
 }
 
+/*timer*/
+.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 250px;
+  font-size: 50px;
+  border-width: 2px;
+  border-style: solid;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.timer {
+  padding-left: 300px;
+}
+
+/*sidebar*/
+.sidebar {
+  float: left;
+  background-color: #CF483C;
+  width: 350px;
+  height: 100vh;
+  margin-top: -50px;
+  padding-left: 15px;
+  color: #fff;
+}
+
+.task-item {
+  width: 295px;
+  line-height: 50px;
+  font-weight: 200;
+}
+
+.task-input {
+  margin-bottom: 15px;
+}
+
+/*input*/
+input {
+  width: 275px;
+  display: inline;
+  border-style: none;
+  text-align: left;
+  height: 40px;
+  background-color: #E0594C;
+  vertical-align: middle;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+input[type=text] {
+  font-weight: 400;
+  padding-left: 5px;
+  color: #fff;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #f4a7a2;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #f4a7a2;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #f4a7a2;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #f4a7a2;
+}
+
+/*buttons*/
 .btn-primary {
   width: 200px;
   margin: 0 auto;
@@ -63,14 +133,39 @@ h2 {
   border: none;
 }
 
-.circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 250px;
-  font-size: 50px;
-  border-width: 2px;
-  border-style: solid;
+.remove-btn, .add-btn {
+  float: right;
+  background: 0;
+  width: 0px;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.ion-ios-plus-outline {
   color: #fff;
-  text-align: center;
-  margin: 0 auto;
+  margin-left: -55px;
+}
+
+.ion-ios-plus-outline:focus,.ion-ios-plus-outline:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.ion-ios-plus-outline:hover:before {
+  content: "\f48b";
+  color: #fff;
+}
+
+.ion-ios-close-outline {
+  color: #fff;
+  outline: none !important;
+}
+
+.ion-ios-close-outline:hover:before {
+  content: "\f406";
+  color: #fff;
+}
+
+.ion-ios-close-outline:focus {
+  outline: none !important;
 }

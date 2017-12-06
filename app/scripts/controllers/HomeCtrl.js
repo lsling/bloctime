@@ -1,16 +1,31 @@
 (function() {
-    function HomeCtrl($interval, $scope, CLOCK) {
+    function HomeCtrl($interval, $scope, CLOCK, Task) {
       $scope.session = 'Start';
       $scope.totalTime = CLOCK.WORK;
       $scope.resetTotalTime = CLOCK.WORK;
       $scope.onBreak = false;
       $scope.sessionCount = 0;
+      $scope.newTask = {};
+      $scope.tasks = Task.all;
+
+      $scope.createTask = function(){
+        Task.add($scope.newTask);
+        $scope.newTask = {};
+      }
+
+      $scope.removeTask = function(task){
+        Task.remove(task);
+      }
 
       $scope.sessionTime = function(session){
         if (session == "Start") {
           $scope.startSession();
         } else if (session == "Reset") {
           $scope.resetSession();
+        }
+        $scope.createTask = function(){
+          Task.add($scope.newTask);
+          $scope.newTask = {};
         }
       };
 
@@ -66,5 +81,5 @@
 
     angular
         .module('bloctime')
-        .controller('HomeCtrl', ['$interval', '$scope', 'CLOCK', HomeCtrl]);
+        .controller('HomeCtrl', ['$interval', '$scope', 'CLOCK', 'Task', HomeCtrl]);
 })();

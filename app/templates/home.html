@@ -1,12 +1,19 @@
-<h1>Fōkəs</h1>
-  <div ng-controller="HomeCtrl">
-    <div ng-hide="onBreak" class="circle">
-      <h2>{{ totalTime | timeFilter }}</h2>
-      <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }}</button>
+<div class="sidebar">
+  <h1>Focus</h1>
+    <input type="text" class="task-input" maxlength="30" ng-model="newTask.title" placeholder="Add New Task">
+    <button class="add-btn btn btn-primary" type="submit" ng-click="createTask(newTask.title)"><span class="ion-ios-plus-outline"></span></button>
+    <div class="task-item" ng-repeat="task in tasks | orderBy: '-createdAt'">{{task.title}}
+      <button class="remove-btn btn btn-primary" ng-click="removeTask(task)"><span class="ion-ios-close-outline"></span></button>
     </div>
-    <div ng-show="onBreak" class="circle">
-      <h2>{{ totalTime | timeFilter }}</h2>
-      <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }} Break</button>
-      <button type="button" class="btn btn-primary" ng-click="skipBreak()">Skip Break</button>
-    </div>
+</div>
+<div class="timer" ng-controller="HomeCtrl">
+  <div ng-hide="onBreak" class="circle">
+    <h2>{{ totalTime | timeFilter }}</h2>
+    <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }}</button>
   </div>
+  <div ng-show="onBreak" class="circle">
+    <h2>{{ totalTime | timeFilter }}</h2>
+    <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }} Break</button>
+    <button type="button" class="btn btn-primary" ng-click="skipBreak()">Skip Break</button>
+  </div>
+</div>
