@@ -3,7 +3,8 @@
       $scope.session = 'Start';
       $scope.totalTime = CLOCK.WORK;
       $scope.resetTotalTime = CLOCK.WORK;
-      $scope.onBreak = false;
+      $scope.onShortBreak = false;
+      $scope.onLongBreak = false;
       $scope.sessionCount = 0;
       $scope.newTask = {};
       $scope.tasks = Task.all;
@@ -39,9 +40,10 @@
           if ($scope.totalTime > 0) {
             $scope.totalTime = $scope.totalTime - 1;
           } else {
-            $scope.onBreak = !$scope.onBreak;
+            $scope.onShortBreak = !$scope.onShortBreak;
+            $scope.onLongBreak = !$scope.onLongBreak;
             $scope.session = "Start";
-              if ($scope.onBreak == true) {
+              if ($scope.onShortBreak || $scope.onLongBreak == true) {
                 $scope.sessionCount += 1;
                 if ($scope.sessionCount % 4 > 0) {
                   $scope.totalTime = CLOCK.SHORT_BREAK;
@@ -71,7 +73,8 @@
         };
 
         $scope.skipBreak = function() {
-          $scope.onBreak = false;
+          $scope.onShortBreak = false;
+          $scope.onLongBreak = false;
           $scope.totalTime = CLOCK.WORK;
           $interval.cancel(stop);
           $scope.session = 'Start';

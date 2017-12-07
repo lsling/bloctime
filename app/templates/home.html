@@ -7,11 +7,18 @@
     </div>
 </div>
 <div class="timer" ng-controller="HomeCtrl">
-  <div ng-hide="onBreak" class="circle">
+    <div ng-hide="onShortBreak || onLongBreak" class="countdown-work-timer circle">
+      <div class="timer-work-r"></div>
+      <div class="timer-slot"><div class="timer-work-l"></div></div>
     <h2>{{ totalTime | timeFilter }}</h2>
     <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }}</button>
   </div>
-  <div ng-show="onBreak" class="circle">
+  <div ng-show="onShortBreak" class="short-break circle">
+    <h2>{{ totalTime | timeFilter }}</h2>
+    <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }} Break</button>
+    <button type="button" class="btn btn-primary" ng-click="skipBreak()">Skip Break</button>
+  </div>
+  <div ng-show="onLongBreak" class="long-break circle">
     <h2>{{ totalTime | timeFilter }}</h2>
     <button type="button" class="btn btn-primary" ng-click="sessionTime(session)">{{ session }} Break</button>
     <button type="button" class="btn btn-primary" ng-click="skipBreak()">Skip Break</button>

@@ -44,10 +44,223 @@ h2 {
   text-align: center;
   margin: 0 auto;
   margin-top: 50px;
+  line-height: 56px;
 }
 
 .timer {
-  padding-left: 300px;
+  padding-left: 500px;
+  margin-top: 50px;
+}
+
+/*work-timer*/
+.countdown-work-timer {
+  width: 306px;
+  height: 306px;
+  position: relative;
+  -webkit-border-radius: 200px;
+  margin: 20px;
+  display: inline-block;
+}
+
+@-webkit-keyframes timer-slide {
+  0%   { -webkit-transform: rotate(-225deg); }
+  50%  { -webkit-transform: rotate(-45deg);  }
+  100% { -webkit-transform: rotate(-45deg);  }
+}
+
+@-webkit-keyframes timer-toggle {
+  0%  { opacity: 0; }
+  50% { opacity: 0; }
+  51% { -webkit-transform: rotate(-45deg);
+    opacity: 1;
+  }
+  75% {
+    border-top-color: transparent;
+  }
+  76% {
+    border-top-color: #CF483C;
+  }
+  100% {
+    -webkit-transform: rotate(137deg);
+    opacity: 1;
+    border-top-color: #CF483C;
+  }
+}
+.timer-work-l, .timer-work-r {
+  border-radius: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+  border: 7px solid #CF483C;
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  -webkit-animation-duration: 30s;
+}
+.timer-work-l {
+  -webkit-animation-name: timer-slide;
+  -webkit-animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  z-index: 5;
+  left: 0;
+}
+.timer-work-r {
+  -webkit-animation-name: timer-toggle;
+  -webkit-animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.timer-slot {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  overflow: hidden;
+}
+
+/*long-break-timer*/
+.countdown-long-break-timer {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  -webkit-border-radius: 200px;
+  margin: 20px;
+  display: inline-block;
+}
+
+@-webkit-keyframes timer-slide {
+  0%   { -webkit-transform: rotate(-225deg); }
+  50%  { -webkit-transform: rotate(-45deg);  }
+  100% { -webkit-transform: rotate(-45deg);  }
+}
+
+@-webkit-keyframes timer-toggle {
+  0%  { opacity: 0; }
+  50% { opacity: 0; }
+  51% { -webkit-transform: rotate(-45deg);
+    opacity: 1;
+  }
+  75% {border-top-color: transparent;
+  }
+  76% {
+    border-top-color: #CF483C;
+  }
+  100% {
+    -webkit-transform: rotate(137deg);
+    opacity: 1;
+    border-top-color: #CF483C;
+  }
+}
+.timer-long-break-l, .timer-long-break-r {
+  border-radius: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+  border: 2px solid #CF483C;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+}
+.timer-long-break-l {
+  -webkit-animation-name: timer-slide;
+  -webkit-animation-timing-function: ease-in;
+  z-index: 5;
+  left: 0;
+}
+.timer-long-break-r {
+  -webkit-animation-name: timer-toggle;
+  -webkit-animation-timing-function: ease-out;
+}
+
+.timer-slot {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  overflow: hidden;
+}
+
+/*short-break-timer*/
+.countdown-short-break-timer {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  -webkit-border-radius: 200px;
+  margin: 20px;
+  display: inline-block;
+}
+
+@-webkit-keyframes timer-slide {
+  0%   { -webkit-transform: rotate(-225deg); }
+  50%  { -webkit-transform: rotate(-45deg);  }
+  100% { -webkit-transform: rotate(-45deg);  }
+}
+
+@-webkit-keyframes timer-toggle {
+  0%  { opacity: 0; }
+  50% { opacity: 0; }
+  51% { -webkit-transform: rotate(-45deg);
+    opacity: 1;
+  }
+  75% {border-top-color: transparent;
+  }
+  76% {
+    border-top-color: #CF483C;
+  }
+  100% {
+    -webkit-transform: rotate(137deg);
+    opacity: 1;
+    border-top-color: #CF483C;
+  }
+}
+.timer-short-break-l, .timer-short-break-r {
+  border-radius: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+  border: 2px solid #CF483C;
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+}
+.timer-short-break-l {
+  -webkit-animation-name: timer-slide;
+  -webkit-animation-timing-function: ease-in;
+  z-index: 5;
+  left: 0;
+}
+.timer-short-break-r {
+  -webkit-animation-name: timer-toggle;
+  -webkit-animation-timing-function: ease-out;
+}
+
+.timer-slot {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  overflow: hidden;
 }
 
 /*sidebar*/
